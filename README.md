@@ -16,3 +16,14 @@ c.	Or click run botton
 
 ## Print text
 Import **ftm** backage ==> this backage use to print the text file
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+	fmt.Println("hello world")
+}
+
+```
