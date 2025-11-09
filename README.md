@@ -34,3 +34,34 @@ func main() {
 ```terminal
 go run main.go
 ```
+
+## Variables
+- declare variables using **var**:
+```go
+package main
+
+import "fmt"
+
+func main() {
+
+	var name = "fatema"
+	fmt.Println(name)
+}
+
+```
+**Quation** 
+- Why in Go we only declare variables with var, not using the data type directly (like in C#)?!
+  -- Go is not like C or Java — it was designed to be simpler and more readable by enforcing a consistent, minimal syntax.
+
+		In Go:
+		
+		The keyword var always introduces a variable.
+		
+		The type comes after the variable name (not before like C, Java, or C#).
+  
+-  Simplified declarations with **:=**
+```go
+name := "Fatema"
+age := 25
+
+```
