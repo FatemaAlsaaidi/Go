@@ -65,3 +65,95 @@ name := "Fatema"
 age := 25
 
 ```
+
+## Constants
+- const declares a constant value.
+- 
+```go
+package main
+
+import (
+	"fmt"
+	"math"
+)
+
+const rihal string = "Rihal"
+const number int = 5
+
+func main() {
+	fmt.Println("hello world")
+
+	var name = "fatema"
+	fmt.Println(name)
+
+	fmt.Println(rihal)
+	fmt.Println(number)
+
+	const age int = 25
+	fmt.Println(age)
+
+	const mark = 99.00
+	fmt.Println((mark))
+
+	const n = 500000000
+	const d = 3e20 / n
+	fmt.Println(d)
+	fmt.Println(int64(d))
+	fmt.Println(math.Sin(n))
+
+}
+
+
+```
+In Go, when write a constant like:
+```go
+const x = 5
+```
+
+it’s called an untyped constant — it doesn’t yet have a fixed type like int, float64, etc.
+Go decides its type later, based on how you use it.
+
+This gives Go flexibility — the same constant can be used as an int, float64, or even complex128 if needed.
+
+**Example**
+```go
+const a = 5   // untyped constant
+
+var x int = a       // a becomes int
+var y float64 = a   // a becomes float64
+```
+
+Works fine because a can adapt its type automatically.
+
+But if you force a type too early
+
+If you define the constant with an explicit type, like:
+
+```go
+const n int = 500000000
+```
+
+
+now n is strictly an integer — it can’t automatically change type anymore.
+
+So if you later use n in an expression that expects a float, you’ll get an error.
+
+**Example**
+```go
+import "math"
+
+const n int = 500000000
+
+func main() {
+    fmt.Println(math.Sin(n)) //  ERROR
+}
+
+```
+**Error message**
+```go
+cannot use n (constant 500000000 of type int) as float64 value in argument to math.Sin
+```
+
+**Why?**
+- Because the function math.Sin() needs a float64, but n is an int.
+- Go doesn’t automatically convert between numeric types.
