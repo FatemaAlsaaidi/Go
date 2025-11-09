@@ -157,3 +157,5 @@ cannot use n (constant 500000000 of type int) as float64 value in argument to ma
 **Why?**
 - Because the function math.Sin() needs a float64, but n is an int.
 - Go doesn’t automatically convert between numeric types.
+**Note**
+- const means immutabl; const l = 3 defines a constant, and constants in Go cannot be changed after declaration.
