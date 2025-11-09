@@ -7,7 +7,6 @@
 a.	 should initial go model:
 go mod init < name of module>
 
-b.	
 ## run go code
 - 	To run the golang code :
 a.	Open terminal of folder which the go files exist 
@@ -26,4 +25,12 @@ func main() {
 	fmt.Println("hello world")
 }
 
+```
+
+- When we write a Go program that want to run directly (like an executable), it must be in the main package.
+- The Go compiler looks for a package named main and a function named main() inside it — that’s the entry point of program
+- "fmt" stands for format — it’s a standard library package in Go that provides functions for formatted I/O (input/output).
+- In Go, the function named main() inside the package main is automatically the starting point when you run the program.So when execute:
+```terminal
+go run main.go
 ```
