@@ -159,3 +159,132 @@ cannot use n (constant 500000000 of type int) as float64 value in argument to ma
 - Go doesn’t automatically convert between numeric types.
 **Note**
 - const means immutabl; const l = 3 defines a constant, and constants in Go cannot be changed after declaration.
+
+## For
+```go
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+
+	//print even number
+	for i := 0; i <= 3; i++ {
+		if i%2 == 0 {
+			fmt.Println(i)
+		}
+
+	}
+	// print odd number
+	for i := 0; i <= 3; i++ {
+		if i%2 == 0 {
+			continue
+		}
+		fmt.Println(i)
+
+	}
+}
+
+```
+## If/Else
+``` go
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	var num int
+	fmt.Print("Enter your grade:")
+	fmt.Scan(&num)
+
+	if num >= 90 && num <= 100 {
+		fmt.Print("A")
+	} else if num >= 80 && num <= 89 {
+		fmt.Print("B")
+	} else if num >= 60 && num <= 79 {
+		fmt.Print("C")
+	} else if num >= 50 && num <= 59 {
+		fmt.Print("D")
+	} else if num >= 0 && num < 50 {
+		fmt.Print("F")
+	} else {
+		fmt.Print("Invalid number of grade")
+	}
+}
+
+```
+## Switch
+```go
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	var choice string
+	fmt.Println("Enter the number of process")
+	fmt.Scan(&choice)
+
+	switch choice {
+	case "1":
+		fmt.Println("Welcome with first process")
+		break
+	case "2":
+		fmt.Println("Welcome with second process")
+		break
+	default:
+		fmt.Println("Invalid number")
+		break
+	}
+
+}
+
+
+```
+## Arrays
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+	// find pair with given sum in array sum = 10
+
+	var sum = 10
+	var hold1 = 0
+	var hold2 = 0
+
+	b := [6]int{8, 7, 2, 5, 3, 1}
+	var A [2]int
+
+	for i := 0; i <= len(b); i++ {
+		hold1 = b[i]
+		for j := 0; j <= len(b); j++ {
+			hold2 = b[j]
+			if hold2 == hold1 {
+				continue
+			} else {
+				if hold1+hold2 == sum {
+					A[0] = hold1
+					A[1] = hold2
+					fmt.Println(A[0])
+					fmt.Println(A[1])
+					fmt.Print("Enter to press")
+					return
+				} else {
+					continue
+				}
+			}
+		}
+
+	}
+
+}
+
+```
