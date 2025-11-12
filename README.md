@@ -36,6 +36,7 @@ go run main.go
 ```
 
 ## Variables
+- The variables are used to store some data at a particular memory address in the system
 - declare variables using **var**:
 ```go
 package main
@@ -159,6 +160,73 @@ cannot use n (constant 500000000 of type int) as float64 value in argument to ma
 - Go doesn’t automatically convert between numeric types.
 **Note**
 - const means immutabl; const l = 3 defines a constant, and constants in Go cannot be changed after declaration.
+
+## Pointer
+- pointer value is the address of a variable.  A pointer is thus the location at which a value is stored.
+**why we need pointer?!**
+  - with a pointer, we can read or update the value of a variable indirectly, without using or even knowing the name of the variable, if indeed it has a name.
+**Memory Representation variables vs pointers**
+Variable: The memory allocated for a variable directly holds its value.
+Pointer: The memory allocated for a pointer holds an address, which in turn points to another memory location where the actual value is stored.
+
+**How Pointers Work in Memory**
+1. You create the variable which store the value.
+```go
+var x = 42
+```
+2. The system allocates a block of memory to store its value (value of variable)
+
+```go
+the system will allocate memory to store 42 and x will refer to that location.
+```
+note: The variable name refers to this memory location
+
+3. A pointer variable p stores the memory address of variable x, not the value 42 itself.
+
+**Pointer aliasing**
+- Pointer aliasing is useful because it allows us to access a variable without using its name
+
+**Pointer in function**
+- Using pointers in Golang functions can serve various purposes, including modifying the original value passed to the function, preventing unnecessary copying of large data structures, and optimizing performance.
+
+```go
+package main
+
+import (
+	"fmt"
+)
+
+type Rectangle struct {
+	Width, Height float64
+}
+
+func resizeRectangle(r *Rectangle, width, height float64) {
+	r.Height = height
+	r.Width = width
+}
+
+func main() {
+
+	rec := Rectangle{Width: 5, Height: 6}
+
+	fmt.Println("Before resize: ", rec)
+
+	resizeRectangle(&rec, 10, 12)
+
+	fmt.Println("After resize: ", rec)
+
+}
+
+
+```
+
+1. Struct Definition (Rectangle):
+- Rectangle has Width and Height fields.
+2. Function Definition (resizeRectangle):
+- resizeRectangle takes a pointer to a Rectangle (*Rectangle) and modifies its fields.
+3. Passing the Pointer (&rect):
+- In main, &rect passes the address of rect to resizeRectangle.
+- The function updates rect directly.
 
 ## For
 ```go
